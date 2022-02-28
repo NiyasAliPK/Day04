@@ -1,5 +1,7 @@
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 
 public class Assignment25 {
@@ -10,11 +12,13 @@ public static void main(String[] args) {
 	int size=input.nextInt();
 	int arr[]=new int [size];
 	int arr2[]=new int [size];
-	int arr3[]=new int [size];
+	Integer arr3[]=new Integer [size];
 	int count=0,temp=0;
+	
 	System.out.println("Enter the values for array :");
 	for( int i=0;i<size;i++) {
 		arr[i]=input.nextInt();
+	
 	}
 	for (int j=0;j<size;j++) {
 		arr2[j]=arr[j];
@@ -23,29 +27,28 @@ public static void main(String[] args) {
 			j=j+2;
 		}
 		}
-	for(int n=0;n<arr2.length;n++) {
-		for(int k=n+1;k<arr2.length;k++) {
-			if(arr2[n]<arr2[k]) {
-				temp=arr2[n];
-				arr2[n]=arr2[k];
-				arr2[k]=temp;
-			}
-		}
-	}
 	for(int a=0;a<size;a++) {
 		if(arr2[a]==0) {
 			count++;
 		}
 	}
-//	for(int m=0;m<size-count;m++) {
-//		System.out.println(arr2[m]);
-//	}
-	for (int i=0;i<arr2.length;i++) {
-		for (int j=0;j<(i*2)-1;j++) {
-			System.out.print(arr2[i]);
-		}
-		
+	Set<Integer> set=new HashSet<Integer>();
+	for(int i=0;i<arr2.length;i++) {
+		if(arr2[i]!=0) {
+		set.add(arr2[i]);
 	}
+	}
+	set.toArray(arr3);
+
+	for(int i=0;i<=arr3.length;i++) {
+		for(int j=1;j<=i*2;j++) {
+			System.out.print(arr3[i]);
+		}System.out.println();
+		for(int m=1;m<=i*3;m++) {
+			System.out.println(arr3[i]);
+		}
+	}
+	
 	}
 }
 	
